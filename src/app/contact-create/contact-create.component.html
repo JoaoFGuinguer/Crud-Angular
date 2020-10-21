@@ -2,20 +2,27 @@
     <span>Novo Contato</span>
 </mat-toolbar>
 
-<div class="newContacts__form">
+<form 
+    [formGroup]="contactForm"
+    class="newContacts__form"
+    (ngSubmit)="createContact()">
     <mat-form-field appearance="standard">
         <mat-label>Input</mat-label>
-        <input matInput>
+        <input matInput formControlName="name">
     </mat-form-field>
 
     <mat-form-field appearance="standard">
         <mat-label>Telefone</mat-label>
-        <input matInput>
+        <input matInput formControlName="phone">
     </mat-form-field>
 
     <div class="newContacts__buttons">
         <a routerLink="/contacts" mat-raised-button>Voltar</a>
-        <button type="submit" mat-raised-button color="primary">Voltar</button>
+        <button 
+            type="submit" 
+            mat-raised-button 
+            color="primary" 
+            [disabled]="contactForm.invalid">Criar</button>
 
     </div>
-</div>
+</form>

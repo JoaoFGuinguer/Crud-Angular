@@ -17,7 +17,7 @@ export class ContactsService {
   constructor(private http: HttpClient) { }
 
   getContacts() {
-    return this.http.get<Contact[]>(`${urlBase}/contacts`);
+    return this.http.get<Contact[]>(`${urlBase}/contacts?_sort=name`);
   }
 
   getIdContact(id: number) {
